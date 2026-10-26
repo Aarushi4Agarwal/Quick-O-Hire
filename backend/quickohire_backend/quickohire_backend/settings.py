@@ -116,11 +116,11 @@ AUTH_PASSWORD_VALIDATORS = [
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'Quick-o-Hire',  # Replace with your MySQL database name
-        'USER': 'root',       # Replace with your MySQL username
-        'PASSWORD': 'REMOVED',   # Replace with your MySQL password
-        'HOST': '127.0.0.1',           # Change if MySQL is on another server
-        'PORT': '3306',                # Default MySQL port
+        'NAME': os.getenv('DB_NAME', 'Quick-o-Hire'),
+        'USER': os.getenv('DB_USER', 'root'),
+        'PASSWORD': os.getenv('DB_PASSWORD', ''),
+        'HOST': os.getenv('DB_HOST', '127.0.0.1'),
+        'PORT': os.getenv('DB_PORT', '3306'),
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
         },
